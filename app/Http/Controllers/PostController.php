@@ -22,7 +22,7 @@ class PostController extends Controller
     {
         Post::create([
             'title' => $request->title,
-            'content' => $request->string('content'),
+            'content' => $request->text('content'),
             'published_at' => now(),
         ]);
         return redirect('/posts');
@@ -39,7 +39,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->update([
             'title' => $request->title,
-            'content' => $request->string('content'),
+            'content' => $request->text('content'),
         ]);
         return redirect('/posts');
     }
